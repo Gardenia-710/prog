@@ -1,0 +1,13 @@
+version: '3'
+services:
+  gcc:
+    # ContextとDockerfileの指定
+    build:
+     context: .
+     dockerfile: .
+    # これでコンテナを実行し続けている
+    command: tail -f /dev/null
+    volumes:
+    # コンテナとホストのディレクトリのマウント(リアルタイム)
+      - ./src:/src/gcc
+    working_dir: /src/gcc
